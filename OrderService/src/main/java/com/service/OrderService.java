@@ -25,13 +25,13 @@ public class OrderService {
 		return new ResponseEntity<String>("Hello : " + name, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="api/user", consumes="application/json", produces="application/json", method=RequestMethod.PUT)
+	@RequestMapping(value="api/order", consumes="application/json", produces="application/json", method=RequestMethod.PUT)
 	@ResponseStatus(code=HttpStatus.OK)
 	public void saveUser(@RequestBody(required=true) OrderPojo order){
 		orderDao.saveOrder(order);
 	}	
 	
-	@RequestMapping(value="api/user", produces="application/json", method=RequestMethod.GET)
+	@RequestMapping(value="api/order", produces="application/json", method=RequestMethod.GET)
 	public ResponseEntity<List<OrderPojo>> getUser(){
 		return new ResponseEntity<List<OrderPojo>>(orderDao.getOrders(), HttpStatus.OK);
 	}

@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dao.UserDao;
-import com.pojo.UserPojo;
+import com.dao.OrderDao;
+import com.pojo.OrderPojo;
 
 @RestController
-public class HelloService {
+public class OrderService {
 	
 	@Autowired
-	UserDao userDao;
+	OrderDao orderDao;
 
 	@RequestMapping(value="api/hello", produces="application/json", method=RequestMethod.GET)
 	public ResponseEntity<String> helloFromService(String name){
@@ -27,12 +27,12 @@ public class HelloService {
 	
 	@RequestMapping(value="api/user", consumes="application/json", produces="application/json", method=RequestMethod.PUT)
 	@ResponseStatus(code=HttpStatus.OK)
-	public void saveUser(@RequestBody(required=true) UserPojo usr){
-		userDao.saveUser(usr);
+	public void saveUser(@RequestBody(required=true) OrderPojo order){
+		orderDao.saveOrder(order);
 	}	
 	
 	@RequestMapping(value="api/user", produces="application/json", method=RequestMethod.GET)
-	public ResponseEntity<List<UserPojo>> getUser(){
-		return new ResponseEntity<List<UserPojo>>(userDao.getUsers(), HttpStatus.OK);
+	public ResponseEntity<List<OrderPojo>> getUser(){
+		return new ResponseEntity<List<OrderPojo>>(orderDao.getOrders(), HttpStatus.OK);
 	}
 }

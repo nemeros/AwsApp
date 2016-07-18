@@ -3,8 +3,9 @@
   
   <groupId>com.nemeros</groupId>
   <artifactId>NemerosApi</artifactId>
-  <version>0.0.4</version>
-  <packaging>war</packaging>
+  <version>0.0.5</version>
+  <name>NemerosApi</name>
+  <packaging>pom</packaging>
   
   	<parent>
 	    <groupId>org.springframework.boot</groupId>
@@ -27,10 +28,6 @@
 		            <target>1.8</target>
 		        </configuration>
 		    </plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 		</plugins>
 	</build>
 	
@@ -57,10 +54,6 @@
 	        <artifactId>spring-boot-starter-tomcat</artifactId>
 	        <scope>provided</scope>
 	    </dependency>
-<!-- 	    <dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency> -->
 	    <dependency>
 		    <groupId>org.postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
@@ -75,4 +68,9 @@
 			<artifactId>spring-cloud-aws-jdbc</artifactId>
 		</dependency>
 	</dependencies>
+	
+	<modules>
+		<module>UserService</module>
+		<module>OrderService</module>
+	</modules>
 </project>

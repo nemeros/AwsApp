@@ -1,0 +1,1 @@
+create table if not exists T_ORDER (ID serial primary key, USR_ID INTEGER, COMMENT varchar(50), VALEUR varchar(30));

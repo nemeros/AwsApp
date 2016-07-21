@@ -1,4 +1,7 @@
 .git
+.settings
+.project
+.classpath
 OrderService/.settings
 OrderService/target
 OrderService/.classpath
